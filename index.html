@@ -3,189 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q Kids Room Decor | كيدز رووم ديكور</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>Q KIDS - مساحات مصممة بحب</title>
     <style>
-        :root {
-            --main-pink: #ffb7b2; /* وردي اللوجو */
-            --main-blue: #aed6f1; /* أزرق اللوجو */
-            --dark-text: #2c3e50;
-        }
+        /* إعدادات الخطوط والألوان الأساسية */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #fdfdfd; color: #333; }
+        
+        /* القائمة العلوية */
+        header { padding: 20px; text-align: center; background-color: #fff; border-bottom: 1px solid #f0f0f0; }
+        header h2 { margin: 0; color: #2c3e50; font-size: 2em; letter-spacing: 2px; }
+        nav { display: flex; justify-content: center; gap: 25px; margin-top: 15px; font-weight: bold; }
+        nav a { text-decoration: none; color: #555; transition: color 0.3s; }
+        nav a:hover { color: #d78a76; }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            margin: 0;
-            background-color: #fdfdfd;
-            color: var(--dark-text);
-        }
+        /* الواجهة الترحيبية */
+        .hero { background-color: #f9f4ef; padding: 70px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 15px; color: #4a4a4a; }
+        .hero p { font-size: 1.2em; max-width: 650px; margin: 0 auto 25px auto; color: #666; line-height: 1.6; }
+        .btn { display: inline-block; background-color: #2c3e50; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-size: 1.1em; transition: background 0.3s; }
+        .btn:hover { background-color: #d78a76; }
 
-        /* الهيدر واللوجو */
-        header {
-            text-align: center;
-            padding: 30px 10px;
-            background: white;
-        }
+        /* قسم المنتجات */
+        .section-title { text-align: center; margin: 50px 0 30px 0; font-size: 2em; color: #2c3e50; }
+        .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 20px 50px 20px; }
+        
+        /* كارت المنتج */
+        .card { background: #fff; width: 280px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 20px; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 100%; height: 260px; object-fit: cover; background-color: #f0f0f0; }
+        .card h3 { margin: 15px 0 5px 0; font-size: 1.2em; color: #333; }
+        .price { color: #d78a76; font-weight: bold; font-size: 1.1em; margin-bottom: 15px; }
+        .add-to-cart { background-color: #fff; color: #2c3e50; border: 1px solid #2c3e50; padding: 8px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+        .add-to-cart:hover { background-color: #2c3e50; color: #fff; }
 
-        .logo-text {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--main-pink);
-            margin: 0;
-            line-height: 1;
-        }
-
-        .sub-logo {
-            font-size: 1.2rem;
-            color: var(--main-blue);
-            font-weight: bold;
-        }
-
-        /* صورة الغرفة الرئيسية (Hero) */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1616627981509-0c1b1c2bdb0d?auto=format&fit=crop&w=1350&q=80');
-            height: 450px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            border-bottom: 10px solid var(--main-pink);
-        }
-
-        .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
-
-        /* قسم الغرف الكاملة */
-        .full-room-section {
-            background: #fff0f0;
-            padding: 40px 20px;
-            text-align: center;
-            margin: 20px 5%;
-            border-radius: 20px;
-            border: 2px dashed var(--main-pink);
-        }
-
-        /* شبكة المنتجات */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 40px 5%;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-            text-align: center;
-        }
-
-        .product-card:hover { transform: translateY(-10px); }
-
-        .product-card img { width: 100%; height: 250px; object-fit: cover; }
-
-        .price { color: #e74c3c; font-weight: bold; font-size: 1.2rem; }
-
-        /* الأزرار */
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            margin: 15px 0;
-            transition: 0.3s;
-        }
-
-        .btn-details {
-            display: block;
-            color: var(--main-blue);
-            text-decoration: underline;
-            margin-bottom: 15px;
-        }
-
-        /* زر واتساب العائم */
-        .floating-wa {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        footer { text-align: center; padding: 40px; background: #eee; }
-        .social-links a { margin: 0 10px; text-decoration: none; color: #555; }
+        /* الفوتر */
+        footer { background-color: #fafafa; color: #666; text-align: center; padding: 30px 20px; border-top: 1px solid #eee; margin-top: 20px; }
     </style>
 </head>
 <body>
 
     <header>
-        <p class="logo-text">Q</p>
-        <p class="sub-logo">KIDS ROOM DECOR | كيدز رووم ديكور</p>
+        <h2>Q KIDS</h2>
+        <nav>
+            <a href="#">الرئيسية</a>
+            <a href="#">غرف النوم</a>
+            <a href="#">التسريحات والمطابخ</a>
+            <a href="#">تواصل معنا</a>
+        </nav>
     </header>
 
-    <section class="hero">
-        <h2>عالم طفلك المودرن</h2>
-        <p>تصميم وتنفيذ غرف أطفال احترافية</p>
-    </section>
+    <div class="hero">
+        <h1>كل طفل يستحق مساحة مصممة بحب</h1>
+        <p>تصميمات معمارية وحلول ذكية لغرف الأطفال المودرن تجمع بين الأمان، وتنمية شخصية الطفل، واللمسة الجمالية الراقية.</p>
+        <a href="#" class="btn">تسوق التشكيلة الجديدة</a>
+    </div>
 
-    <section class="full-room-section">
-        <h3>تصميم غرف كاملة (عمولة)</h3>
-        <p>سرير دورين - دولاب - منطقة تسلق - مكتبة</p>
-        <p><strong>السعر: يحدد حسب المقاس والخامات</strong></p>
-        <a href="https://wa.me/201070420400?text=اريد الاستفسار عن تفاصيل ومقاسات غرفة كاملة" class="btn-whatsapp">استفسر الآن عبر واتساب</a>
-    </section>
-
-    <div class="products-grid">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1582582494700-89e4d7b0a6c6" alt="ديكور حائط">
-            <h3>Kids Wall Decor</h3>
-            <p class="price">4,500 EGP</p>
-            <a href="product1.html" class="btn-details">عرض التفاصيل والصور</a>
-            <a href="https://wa.me/201070420400?text=اريد طلب منتج Kids Wall Decor بسعر 4500" class="btn-whatsapp">اطلب عبر واتساب</a>
+    <h2 class="section-title">أحدث التصميمات</h2>
+    
+    <div class="grid">
+        <div class="card">
+            <img src="room1.jpg" alt="غرفة أطفال مودرن">
+            <h3>غرفة الفراشة الهادئة</h3>
+            <div class="price">28,000 ج.م</div>
+            <button class="add-to-cart">التفاصيل</button>
+        </div>
+        
+        <div class="card">
+            <img src="kitchen.jpg" alt="مطبخ أطفال">
+            <h3>مطبخ الأطفال التفاعلي</h3>
+            <div class="price">7,990 ج.م</div>
+            <button class="add-to-cart">التفاصيل</button>
         </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="منطقة تسلق">
-            <h3>Kids Climbing Area</h3>
-            <p class="price">2,650 EGP</p>
-            <a href="product2.html" class="btn-details">عرض التفاصيل والصور</a>
-            <a href="https://wa.me/201070420400?text=اريد طلب منتج Kids Climbing Area بسعر 2650" class="btn-whatsapp">اطلب عبر واتساب</a>
-        </div>
-
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="وحدة تخزين">
-            <h3>Kids Storage Unit</h3>
-            <p class="price">3,500 EGP</p>
-            <a href="product3.html" class="btn-details">عرض التفاصيل والصور</a>
-            <a href="https://wa.me/201070420400?text=اريد طلب منتج Kids Storage Unit بسعر 3500" class="btn-whatsapp">اطلب عبر واتساب</a>
+        <div class="card">
+            <img src="wardrobe.jpg" alt="دولاب ملابس">
+            <h3>دولاب التخزين الذكي</h3>
+            <div class="price">12,500 ج.م</div>
+            <button class="add-to-cart">التفاصيل</button>
         </div>
     </div>
 
     <footer>
-        <div class="social-links">
-            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a>
-        </div>
-        <p>© 2026 Q Kids Room Decor - جميع الحقوق محفوظة</p>
+        <p>جميع الحقوق محفوظة © 2026 Q KIDS</p>
     </footer>
-
-    <a href="https://wa.me/201070420400" class="floating-wa">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
-    </a>
 
 </body>
 </html>
