@@ -1,165 +1,185 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q Kids</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q KIDS | تصاميم غرف أطفال إبداعية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #5dade2; /* أزرق سماوي هادئ */
+            --accent-color: #ffb7b2; /* وردي طفولي */
+            --bg-color: #f0f7f9;
+            --text-color: #2c3e50;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #f9f9f9;
-}
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
 
-/* Header */
-.header {
-    text-align: center;
-    padding: 20px;
-}
+        header {
+            background-color: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-.header h1 {
-    margin: 0;
-    font-size: 40px;
-}
+        .logo {
+            font-family: 'Fredoka One', cursive; /* خط دائري مبهج */
+            font-size: 1.8rem;
+            color: var(--main-color);
+            letter-spacing: 1px;
+        }
 
-.header p {
-    margin: 5px;
-    color: gray;
-}
+        nav a {
+            text-decoration: none;
+            color: #7f8c8d;
+            margin-right: 20px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
 
-/* Hero */
-.hero {
-    background: url('https://images.unsplash.com/photo-1616627981509-0c1b1c2bdb0d') no-repeat center;
-    background-size: cover;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
+        nav a:hover {
+            color: var(--main-color);
+        }
 
-.hero h2 {
-    background: rgba(0,0,0,0.4);
-    padding: 10px;
-}
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #5dade2 0%, #aed6f1 100%);
+            color: white;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
 
-/* Section */
-.section {
-    padding: 30px;
-    text-align: center;
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
 
-/* Products */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
 
-.card {
-    background: white;
-    width: 250px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px #ddd;
-}
+        .container {
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.card img {
-    width: 100%;
-}
+        .card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border: 2px solid transparent;
+        }
 
-.card h3 {
-    margin: 10px;
-}
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
 
-.card p {
-    color: #555;
-}
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
 
-.btn {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
 
-/* Projects */
-.projects img {
-    width: 250px;
-    margin: 10px;
-    border-radius: 10px;
-}
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--main-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(93, 173, 226, 0.3);
+        }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-}
-</style>
+        .btn:hover {
+            background-color: #3498db;
+            box-shadow: 0 6px 15px rgba(93, 173, 226, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #ffffff;
+            color: #95a5a6;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
-    <h1>Q</h1>
-    <p>Kids</p>
-</div>
+    <header>
+        <div class="logo">Q KIDS</div>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="product1.html">غرف نوم</a>
+            <a href="product2.html">مساحات لعب</a>
+            <a href="product3.html">ديكورات</a>
+        </nav>
+    </header>
 
-<div class="hero">
-    <h2>Modern Kids Rooms - غرف أطفال مودرن</h2>
-</div>
+    <section class="hero">
+        <h1>صمم عالم طفلك الخيالي</h1>
+        <p>نحول أحلام أطفالكم إلى غرف نوم واقعية بتصاميم معمارية فريدة</p>
+        <a href="#explore" class="btn" style="background: white; color: var(--main-color);">تصفح التصاميم</a>
+    </section>
 
-<div class="section">
-    <h2>Full Room Design</h2>
-    <p>السعر يحدد fs حسب المقاس والخامات</p>
-    <a class="btn" href="https://wa.me/201070420400?text=اريد%20الاستفسار%20عن%20غرفة%20كاملة">اطلب عبر واتساب</a>
-</div>
-
-<div class="section">
-    <h2>منتجاتنا</h2>
-
-    <div class="products">
-
+    <div class="container" id="explore">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1582582494700-89e4d7b0a6c6">
-            <h3>Kids Wall Decor</h3>
-            <p>4500 EGP</p>
-            <a class="btn" href="product1.html">عرض التفاصيل</a>
+            <div class="card-content">
+                <h3>تصميم غرف النوم</h3>
+                <p>مساحات مريحة تجمع بين الهدوء والإبداع لنوم هانئ.</p>
+                <a href="product1.html" class="btn">اكتشف المزيد</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-            <h3>Kids Climbing Area</h3>
-            <p>2650 EGP</p>
-            <a class="btn" href="product2.html">عرض التفاصيل</a>
+            <div class="card-content">
+                <h3>مساحات اللعب</h3>
+                <p>بيئة آمنة ومحفزة تنمي مهارات الطفل وتفكيره.</p>
+                <a href="product2.html" class="btn">اكتشف المزيد</a>
+            </div>
         </div>
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
-            <h3>Kids Storage Unit</h3>
-            <p>3500 EGP</p>
-            <a class="btn" href="product3.html">عرض التفاصيل</a>
+            <div class="card-content">
+                <h3>ركن الدراسة</h3>
+                <p>تصاميم تشجع على التركيز والإبداع الدراسي بطريقة ممتعة.</p>
+                <a href="product3.html" class="btn">اكتشف المزيد</a>
+            </div>
         </div>
-
     </div>
-</div>
 
-<div class="section projects">
-    <h2>أعمالنا</h2>
-    <img src="https://images.unsplash.com/photo-1616627981509-0c1b1c2bdb0d">
-    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
-</div>
-
-<div class="footer">
-    <p>تابعنا:</p>
-    <p>Instagram | Facebook | TikTok</p>
-</div>
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - **Q KIDS**</p>
+        <small>بكل حب، صُمم لمستقبل أطفالنا</small>
+    </footer>
 
 </body>
 </html>
