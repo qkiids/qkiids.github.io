@@ -6,16 +6,14 @@
     <title>Q KIDS - مساحات مصممة بحب</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* الإعدادات العامة (ستايل مينيمالي هادي) */
+        /* الإعدادات العامة */
         body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #fff; color: #333; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* ---------------------------------------------------- */
-        /* الهيدر القياسي الجديد - مُطابق تماماً للمواقع الاحترافية */
+        /* الهيدر القياسي */
         header { 
             display: flex; 
             justify-content: space-between; 
@@ -23,78 +21,44 @@
             padding: 15px 5%; 
             background-color: #fff; 
             border-bottom: 1px solid #f0f0f0; 
-            position: sticky; top: 0; z-index: 100; /* بيفضل ثابت فوق */
+            position: sticky; top: 0; z-index: 100;
         }
-
-        /* الجزء الشمال (زرار الـ 3 خطوط ☰) */
         .left-menu-container { font-size: 1.5em; color: #555; cursor: pointer; }
         .left-menu-container:hover { color: #000; }
-
-        /* الجزء النص (اسم البراند - في المنتصف تماماً) */
         .center-logo-container h1 { margin: 0; font-size: 1.8em; color: #222; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;}
-
-        /* الجزء اليمين (البحث والسلة) */
         .right-icons-container { display: flex; gap: 20px; font-size: 1.3em; color: #555; }
         .right-icons-container a:hover { color: #000; cursor: pointer; }
 
-        /* تظبيط للموبايل عشان الاسم ميتداخلش */
         @media (max-width: 600px) {
             .center-logo-container h1 { font-size: 1.4em; }
             .right-icons-container { gap: 15px; font-size: 1.1em; }
         }
-        /* ---------------------------------------------------- */
 
-        /* البانر الرئيسي الهادي */
+        /* البانر الرئيسي */
         .hero { background-color: #f8f6f5; text-align: center; padding: 70px 20px; margin-bottom: 30px;}
         .hero h2 { font-size: 2em; color: #333; margin-bottom: 10px; }
         .hero p { font-size: 1.1em; color: #666; max-width: 550px; margin: 0 auto; line-height: 1.6; }
 
-        /* قسم المنتجات ( Collection 2026 ) */
+        /* قسم المنتجات */
         .collection-title { text-align: center; font-size: 1.8em; margin: 40px 0 20px; color: #222; font-weight: 700; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 5%; max-width: 1200px; margin: 0 auto 50px; }
 
-        /* كارت المنتج الشيك (مينيمالي) */
+        /* كارت المنتج */
         .product-card { text-align: center; background: #fff; transition: 0.3s; border-radius: 4px; overflow: hidden; padding-bottom: 15px;}
         .product-card:hover { transform: translateY(-3px); }
-        
-        /* تظبيط الصورة المكسورة: لازم ترفع ملف صورة وتكتب اسمه هنا */
-        .product-image { 
-            width: 100%; 
-            height: 320px; 
-            background-color: #eee; /* لون مؤقت عشان يبين المكان */
-            object-fit: cover; 
-            margin-bottom: 12px; 
-        }
-        
+        .product-image { width: 100%; height: 320px; background-color: #eee; object-fit: cover; margin-bottom: 12px; }
         .product-title { font-size: 1.1em; font-weight: 600; color: #333; margin: 0 0 5px; }
         .product-price { font-size: 1em; color: #777; margin-bottom: 12px; }
-        
-        /* زرار المنتج (إطار أسود وشفاف) */
         .btn-choose { display: inline-block; border: 1px solid #333; color: #333; background: transparent; padding: 7px 25px; font-size: 0.95em; font-weight: 600; border-radius: 2px; transition: 0.3s; }
         .btn-choose:hover { background: #333; color: #fff; }
 
-        /* الفوتر الهادي */
+        /* الفوتر */
         footer { background-color: #fafafa; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 30px; font-size: 0.9em; }
 
-        /* منطقة الواتساب العائمة الاحترافية الصغيره (زي Soulia) */
+        /* الواتساب العائم */
         .whatsapp-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
-        
-        /* زرار الواتساب نفسه - تم حذف الجملة وتصغير الحجم */
-        .whatsapp-btn { 
-            background-color: #25D366; 
-            color: white; 
-            width: 45px; /* حجم صغير بالظبط زي Soulia */
-            height: 45px; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 1.8em; 
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); 
-            transition: 0.3s; 
-        }
+        .whatsapp-btn { background-color: #25D366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: 0.3s; }
         .whatsapp-btn:hover { transform: scale(1.05); }
-
     </style>
 </head>
 <body>
@@ -108,9 +72,9 @@
         </div>
 
         <div class="right-icons-container">
-            <a href="https://wa.me/201000000000?text=مرحباً، أود البحث عن منتج في Q KIDS" title="بحث">
+            <a href="https://wa.me/201070420400?text=مرحباً، أود البحث عن منتج في Q KIDS" title="بحث">
                 <i class="fas fa-search"></i> </a>
-            <a href="https://wa.me/201000000000?text=مرحباً، أود مراجعة طلبي في سلة التسوق" title="سلة التسوق">
+            <a href="https://wa.me/201070420400?text=مرحباً، أود مراجعة طلبي في سلة التسوق" title="سلة التسوق">
                 <i class="fas fa-shopping-basket"></i> </a>
         </div>
     </header>
@@ -125,21 +89,24 @@
     <div class="product-grid">
         
         <div class="product-card">
-            <img src="qkids_room1.png" alt="غرفة الفراشة الهادئة" class="product-image">
+            <!-- ربط الصورة الأولى -->
+            <img src="desk.jpg" alt="غرفة الفراشة الهادئة" class="product-image">
             <h3 class="product-title">غرفة الفراشة الهادئة</h3>
             <div class="product-price">28,000 ج.م</div>
             <a href="product1.html" class="btn-choose">اختر التفاصيل</a>
         </div>
 
         <div class="product-card">
-            <img src="qkids_kitchen1.png" alt="مطبخ الأطفال التفاعلي" class="product-image">
+            <!-- ربط الصورة التانية -->
+            <img src="kitchen.jpg" alt="مطبخ الأطفال التفاعلي" class="product-image">
             <h3 class="product-title">مطبخ الأطفال التفاعلي</h3>
             <div class="product-price">7,990 ج.م</div>
             <a href="product2.html" class="btn-choose">اختر التفاصيل</a>
         </div>
 
         <div class="product-card">
-            <img src="qkids_wardrobe1.png" alt="دولاب التخزين الذكي" class="product-image">
+            <!-- ربط الصورة التالتة -->
+            <img src="box.jpg" alt="دولاب التخزين الذكي" class="product-image">
             <h3 class="product-title">دولاب التخزين الذكي</h3>
             <div class="product-price">12,500 ج.م</div>
             <a href="product3.html" class="btn-choose">اختر التفاصيل</a>
@@ -152,6 +119,7 @@
     </footer>
 
     <div class="whatsapp-container">
+        <!-- رقمك في الزرار العائم -->
         <a href="https://wa.me/201070420400?text=مرحباً، أريد الاستفسار عن التصميمات المتاحة" class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i> </a>
     </div>
