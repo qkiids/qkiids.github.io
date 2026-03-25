@@ -5,46 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q KIDS - مساحات مصممة بحب</title>
     
-    <!-- تغيير الفونت لـ Tajawal -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* الإعدادات العامة */
-        body { font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; background-color: #fff; color: #333; overflow-x: hidden; }
+        /* الإعدادات العامة والخلفية البيضاء الصافية */
+        body { font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #1a2b4c; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* الهيدر وتوسيط الشعار بالمللي */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 100; }
-        .left-menu-container { font-size: 1.5em; color: #555; cursor: pointer; flex: 1; }
+        /* الهيدر الـ High Quality */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 18px 5%; background-color: #ffffff; 
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* ظل خفيف جداً يفصل الهيدر */
+        }
         
+        /* أيقونة القائمة (التلات خطوط) */
+        .left-menu-container { flex: 1; display: flex; align-items: center; cursor: pointer; }
+        .menu-icon { width: 26px; height: 26px; stroke: #1a2b4c; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+        
+        /* الشعار في النص بالمللي */
         .center-logo-container { position: absolute; left: 50%; transform: translateX(-50%); text-align: center; }
-        .center-logo-container h1 { margin: 0; font-size: 1.7em; color: #112d4e; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;}
+        .center-logo-container h1 { margin: 0; font-size: 1.8em; color: #1a2b4c; font-weight: 800; letter-spacing: 1px;}
         
-        .right-icons-container { display: flex; align-items: center; justify-content: flex-end; gap: 15px; font-size: 1.3em; color: #555; flex: 1; }
-        .lang-btn { font-size: 0.8em; font-weight: 700; border: 1px solid #555; padding: 2px 6px; border-radius: 50%; cursor: pointer;}
-        
-        /* البانر الرئيسي ومكان الزرار الجديد */
+        /* أيقونات البحث والسلة */
+        .right-icons-container { display: flex; align-items: center; justify-content: flex-end; gap: 18px; flex: 1; }
+        .header-icon { width: 24px; height: 24px; stroke: #1a2b4c; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; transition: 0.3s; cursor: pointer;}
+        .header-icon:hover { stroke-width: 2; }
+
+        /* البانر الرئيسي ومكان الزرار */
         .hero { 
             background-image: url('start1.png'); 
             background-size: cover; 
             background-position: center; 
             height: 60vh; 
             display: flex; 
-            align-items: flex-end; /* تنزيل الزرار لتحت */
+            align-items: flex-end; 
             justify-content: center; 
             position: relative; 
             margin-bottom: 40px;
-            padding-bottom: 30px; /* تظبيط الارتفاع عن الأرض */
+            padding-bottom: 40px; 
         }
         
-        /* الزرار الشفاف وفيه سطرين */
+        /* 🔥 الزرار الأبيض البارز (نفس ستايل منزلي) 🔥 */
         .hero-btn { 
-            background-color: rgba(220, 208, 196, 0.85); 
-            color: #112d4e; 
-            padding: 8px 30px; 
-            border-radius: 25px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            background-color: #ffffff; 
+            color: #1a2b4c; 
+            padding: 12px 45px; 
+            border-radius: 50px; /* شكل الحبة (Pill) */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* ظل يخليه يبان زرار حقيقي قابل للضغط */
             transition: all 0.3s; 
             position: relative; 
             z-index: 2;
@@ -53,53 +62,40 @@
             align-items: center;
             justify-content: center;
         }
-        .hero-btn .main-text { font-size: 1.2em; font-weight: 700; line-height: 1.1; }
-        .hero-btn .sub-text { font-size: 0.75em; font-weight: 500; margin-top: 3px; opacity: 0.8; }
-        .hero-btn:hover { background-color: rgba(220, 208, 196, 1); transform: scale(1.03); }
+        .hero-btn .main-text { font-size: 1.25em; font-weight: 800; line-height: 1.1; }
+        .hero-btn .sub-text { font-size: 0.8em; font-weight: 500; margin-top: 2px; color: #555; }
+        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 
-        .collection-title { text-align: center; font-size: 1.8em; margin: 40px 0 20px; color: #112d4e; font-weight: 800; }
+        .collection-title { text-align: center; font-size: 1.8em; margin: 40px 0 20px; color: #1a2b4c; font-weight: 800; }
         
-        /* إعدادات السلايدر (السحب للجنب) */
+        /* إعدادات السلايدر */
         .slider-wrapper { position: relative; max-width: 1200px; margin: 0 auto 50px; padding: 0 5%; }
-        
-        .product-track { 
-            display: flex; 
-            gap: 15px; 
-            overflow-x: auto; 
-            scroll-snap-type: x mandatory; 
-            scrollbar-width: none; 
-            scroll-behavior: smooth;
-            padding-bottom: 10px;
-        }
+        .product-track { display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-behavior: smooth; padding-bottom: 10px; }
         .product-track::-webkit-scrollbar { display: none; }
 
-        /* كارت المنتج - الحسبة المضبوطة عشان التالت يظهر */
-        .product-card { 
-            flex: 0 0 40%; /* 40% عشان يسيب مساحة للمنتج التالت يطل */
-            scroll-snap-align: start; 
-            text-align: center; background: #fff; transition: 0.3s; border-radius: 12px; overflow: hidden; padding-bottom: 15px; border: 1px solid #112d4e; 
-        }
-        .product-image { width: 100%; height: 200px; background-color: #eee; object-fit: cover; border-bottom: 1px solid #f0f0f0; margin-bottom: 12px; }
-        .product-title { font-size: 1.1em; font-weight: 700; color: #112d4e; margin: 0 0 10px; display: flex; justify-content: center; align-items: center; gap: 8px;}
+        /* كارت المنتج */
+        .product-card { flex: 0 0 40%; scroll-snap-align: start; text-align: center; background: #fff; transition: 0.3s; border-radius: 12px; overflow: hidden; padding-bottom: 15px; border: 1px solid #e0e0e0; }
+        .product-image { width: 100%; height: 200px; background-color: #f9f9f9; object-fit: cover; margin-bottom: 12px; }
+        .product-title { font-size: 1.1em; font-weight: 700; color: #1a2b4c; margin: 0 0 10px; display: flex; justify-content: center; align-items: center; gap: 8px;}
         
-        .slider-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 15px; color: #555; font-size: 1.1em; font-weight: 700;}
-        .slider-controls button { background: none; border: none; font-size: 1.2em; cursor: pointer; color: #888; transition: 0.3s; padding: 5px 15px;}
+        .slider-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 15px; color: #1a2b4c; font-size: 1.1em; font-weight: 700;}
+        .slider-controls button { background: none; border: none; font-size: 1.2em; cursor: pointer; color: #1a2b4c; transition: 0.3s; padding: 5px 15px; display: flex; align-items: center; justify-content: center;}
+        
+        /* أسهم التقليب الجديدة */
+        .arrow-icon { width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 
-        footer { background-color: #fafafa; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 30px; font-size: 0.9em; font-weight: 500; }
-
-        .whatsapp-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
-        .whatsapp-btn { background-color: #25D366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: 0.3s; }
+        footer { background-color: #ffffff; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #f0f0f0; margin-top: 30px; font-size: 0.9em; font-weight: 500; }
 
         /* تظبيط الموبايل */
         @media (max-width: 600px) {
-            .center-logo-container h1 { font-size: 1.4em; }
-            .hero { height: 35vh; margin-bottom: 25px; padding-bottom: 15px;} 
+            .center-logo-container h1 { font-size: 1.5em; }
+            .hero { height: 35vh; margin-bottom: 25px; padding-bottom: 20px;} 
             
-            .hero-btn { padding: 6px 22px; }
-            .hero-btn .main-text { font-size: 0.95em; }
-            .hero-btn .sub-text { font-size: 0.65em; }
+            .hero-btn { padding: 10px 35px; }
+            .hero-btn .main-text { font-size: 1.05em; }
+            .hero-btn .sub-text { font-size: 0.7em; }
 
-            .product-card { flex: 0 0 40%; } /* إجبار الموبايل على 40% لظهور التالت */
+            .product-card { flex: 0 0 40%; }
             .product-image { height: 160px; }
             .product-title { font-size: 0.95em; }
         }
@@ -108,12 +104,29 @@
 <body>
 
     <header>
-        <div class="left-menu-container"><i class="fas fa-bars"></i></div>
+        <!-- أيقونة القائمة (مرسومة بالكود عشان الدقة) -->
+        <div class="left-menu-container">
+            <svg class="menu-icon" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </div>
+        
         <div class="center-logo-container"><a href="index.html"><h1>Q KIDS</h1></a></div>
+        
+        <!-- أيقونات البحث والسلة (نفس ستايل منزلي) -->
         <div class="right-icons-container">
-            <div class="lang-btn">EN</div>
-            <a href="https://wa.me/201070420400?text=مرحباً، أود البحث عن منتج"><i class="fas fa-search"></i></a>
-            <a href="https://wa.me/201070420400?text=مرحباً، أود مراجعة طلبي"><i class="fas fa-shopping-basket"></i></a>
+            <a href="#">
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <path d="M6 6h12l1 14H5L6 6z"></path>
+                    <path d="M9 6V4a3 3 0 0 1 6 0v2"></path>
+                </svg>
+            </a>
         </div>
     </header>
 
@@ -131,47 +144,60 @@
             
             <div class="product-card">
                 <img src="desk.jpg" alt="مكتب أطفال" class="product-image">
-                <a href="kids-desk.html" class="product-title"><i class="fas fa-arrow-left"></i> مكتب أطفال</a>
+                <a href="kids-desk.html" class="product-title">
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> 
+                    مكتب أطفال
+                </a>
             </div>
 
             <div class="product-card">
                 <img src="desk.jpg" alt="مكاتب شبابي" class="product-image">
-                <a href="youth-desk.html" class="product-title"><i class="fas fa-arrow-left"></i> مكاتب شبابي</a>
+                <a href="youth-desk.html" class="product-title">
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> 
+                    مكاتب شبابي
+                </a>
             </div>
 
             <div class="product-card">
                 <img src="kitchen.jpg" alt="مطبخ أطفال" class="product-image">
-                <a href="kids-kitchen.html" class="product-title"><i class="fas fa-arrow-left"></i> مطبخ أطفال</a>
+                <a href="kids-kitchen.html" class="product-title">
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> 
+                    مطبخ أطفال
+                </a>
             </div>
 
             <div class="product-card">
                 <img src="box.jpg" alt="مكتبة أطفال" class="product-image">
-                <a href="kids-library.html" class="product-title"><i class="fas fa-arrow-left"></i> مكتبة أطفال</a>
+                <a href="kids-library.html" class="product-title">
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> 
+                    مكتبة أطفال
+                </a>
             </div>
 
             <div class="product-card">
                 <img src="box.jpg" alt="تسريحة" class="product-image">
-                <a href="dressing-table.html" class="product-title"><i class="fas fa-arrow-left"></i> تسريحة</a>
+                <a href="dressing-table.html" class="product-title">
+                    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg> 
+                    تسريحة
+                </a>
             </div>
 
         </div>
 
         <div class="slider-controls">
-            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <button id="nextBtn">
+                <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
+            </button>
             <span id="pageIndicator">1 / 5</span>
-            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <button id="prevBtn">
+                <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+            </button>
         </div>
     </div>
 
     <footer>
         <p>جميع الحقوق محفوظة © 2026 Q KIDS</p>
     </footer>
-
-    <div class="whatsapp-container">
-        <a href="https://wa.me/201070420400?text=مرحباً، أريد الاستفسار عن التصميمات المتاحة" class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> 
-        </a>
-    </div>
 
     <script>
         const track = document.getElementById('productTrack');
