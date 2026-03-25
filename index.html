@@ -15,7 +15,7 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
         /* ---------------------------------------------------- */
-        /* الهيدر القياسي الجديد (الشكل اللي طلبته بالمللي) */
+        /* الهيدر القياسي الجديد - مُطابق تماماً للمواقع الاحترافية */
         header { 
             display: flex; 
             justify-content: space-between; 
@@ -26,21 +26,21 @@
             position: sticky; top: 0; z-index: 100; /* بيفضل ثابت فوق */
         }
 
+        /* الجزء الشمال (زرار الـ 3 خطوط ☰) */
+        .left-menu-container { font-size: 1.5em; color: #555; cursor: pointer; }
+        .left-menu-container:hover { color: #000; }
+
+        /* الجزء النص (اسم البراند - في المنتصف تماماً) */
+        .center-logo-container h1 { margin: 0; font-size: 1.8em; color: #222; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;}
+
         /* الجزء اليمين (البحث والسلة) */
-        .header-icons-right { display: flex; gap: 20px; font-size: 1.3em; color: #555; order: 1; }
-        .header-icons-right i:hover { color: #000; cursor: pointer; }
-
-        /* الجزء النص (اسم البراند) */
-        header h1 { margin: 0; font-size: 1.8em; color: #222; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; order: 2; position: absolute; left: 50%; transform: translateX(-50%);}
-
-        /* الجزء الشمال (زرار الـ 3 خطوط) */
-        .header-menu-left { order: 3; font-size: 1.5em; color: #555; cursor: pointer; }
-        .header-menu-left:hover { color: #000; }
+        .right-icons-container { display: flex; gap: 20px; font-size: 1.3em; color: #555; }
+        .right-icons-container a:hover { color: #000; cursor: pointer; }
 
         /* تظبيط للموبايل عشان الاسم ميتداخلش */
         @media (max-width: 600px) {
-            header h1 { font-size: 1.4em; }
-            .header-icons-right { gap: 15px; font-size: 1.1em; }
+            .center-logo-container h1 { font-size: 1.4em; }
+            .right-icons-container { gap: 15px; font-size: 1.1em; }
         }
         /* ---------------------------------------------------- */
 
@@ -56,7 +56,16 @@
         /* كارت المنتج الشيك (مينيمالي) */
         .product-card { text-align: center; background: #fff; transition: 0.3s; border-radius: 4px; overflow: hidden; padding-bottom: 15px;}
         .product-card:hover { transform: translateY(-3px); }
-        .product-image { width: 100%; height: 320px; background-color: #f9f9f9; object-fit: cover; margin-bottom: 12px; }
+        
+        /* تظبيط الصورة المكسورة: لازم ترفع ملف صورة وتكتب اسمه هنا */
+        .product-image { 
+            width: 100%; 
+            height: 320px; 
+            background-color: #eee; /* لون مؤقت عشان يبين المكان */
+            object-fit: cover; 
+            margin-bottom: 12px; 
+        }
+        
         .product-title { font-size: 1.1em; font-weight: 600; color: #333; margin: 0 0 5px; }
         .product-price { font-size: 1em; color: #777; margin-bottom: 12px; }
         
@@ -67,11 +76,23 @@
         /* الفوتر الهادي */
         footer { background-color: #fafafa; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 30px; font-size: 0.9em; }
 
-        /* منطقة الواتساب العائمة الاحترافية */
-        .whatsapp-container { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; align-items: flex-end; z-index: 1000; }
-        .whatsapp-tooltip { background-color: #fff; color: #333; padding: 7px 12px; border-radius: 8px; font-size: 0.85em; font-weight: 600; box-shadow: 0 3px 8px rgba(0,0,0,0.08); margin-bottom: 8px; border: 1px solid #eaeaea; position: relative; }
-        .whatsapp-tooltip::after { content: ""; position: absolute; bottom: -5px; right: 18px; border-width: 5px 5px 0; border-style: solid; border-color: #fff transparent transparent transparent; }
-        .whatsapp-btn { background-color: #25D366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; box-shadow: 0 3px 10px rgba(37, 211, 102, 0.2); transition: 0.3s; }
+        /* منطقة الواتساب العائمة الاحترافية الصغيره (زي Soulia) */
+        .whatsapp-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        
+        /* زرار الواتساب نفسه - تم حذف الجملة وتصغير الحجم */
+        .whatsapp-btn { 
+            background-color: #25D366; 
+            color: white; 
+            width: 45px; /* حجم صغير بالظبط زي Soulia */
+            height: 45px; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 1.8em; 
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); 
+            transition: 0.3s; 
+        }
         .whatsapp-btn:hover { transform: scale(1.05); }
 
     </style>
@@ -79,15 +100,19 @@
 <body>
 
     <header>
-        <div class="header-icons-right">
-            <i class="fas fa-search"></i> <a href="https://wa.me/201000000000?text=مرحباً، أود مراجعة طلبي في سلة التسوق" title="سلة التسوق">
-                <i class="fas fa-shopping-basket"></i> </a>
+        <div class="left-menu-container">
+            <i class="fas fa-bars"></i> </div>
+
+        <div class="center-logo-container">
+            <a href="index.html"><h1>Q KIDS</h1></a>
         </div>
 
-        <a href="index.html"><h1>Q KIDS</h1></a>
-
-        <div class="header-menu-left">
-            <i class="fas fa-bars"></i> </div>
+        <div class="right-icons-container">
+            <a href="https://wa.me/201000000000?text=مرحباً، أود البحث عن منتج في Q KIDS" title="بحث">
+                <i class="fas fa-search"></i> </a>
+            <a href="https://wa.me/201000000000?text=مرحباً، أود مراجعة طلبي في سلة التسوق" title="سلة التسوق">
+                <i class="fas fa-shopping-basket"></i> </a>
+        </div>
     </header>
 
     <div class="hero">
@@ -100,21 +125,21 @@
     <div class="product-grid">
         
         <div class="product-card">
-            <img src="" alt="غرفة الفراشة الهادئة" class="product-image">
+            <img src="qkids_room1.png" alt="غرفة الفراشة الهادئة" class="product-image">
             <h3 class="product-title">غرفة الفراشة الهادئة</h3>
             <div class="product-price">28,000 ج.م</div>
             <a href="product1.html" class="btn-choose">اختر التفاصيل</a>
         </div>
 
         <div class="product-card">
-            <img src="" alt="مطبخ الأطفال التفاعلي" class="product-image">
+            <img src="qkids_kitchen1.png" alt="مطبخ الأطفال التفاعلي" class="product-image">
             <h3 class="product-title">مطبخ الأطفال التفاعلي</h3>
             <div class="product-price">7,990 ج.م</div>
             <a href="product2.html" class="btn-choose">اختر التفاصيل</a>
         </div>
 
         <div class="product-card">
-            <img src="" alt="دولاب التخزين الذكي" class="product-image">
+            <img src="qkids_wardrobe1.png" alt="دولاب التخزين الذكي" class="product-image">
             <h3 class="product-title">دولاب التخزين الذكي</h3>
             <div class="product-price">12,500 ج.م</div>
             <a href="product3.html" class="btn-choose">اختر التفاصيل</a>
@@ -127,7 +152,6 @@
     </footer>
 
     <div class="whatsapp-container">
-        <div class="whatsapp-tooltip">فريق Q KIDS جاهز لمساعدتك</div>
         <a href="https://wa.me/201070420400?text=مرحباً، أريد الاستفسار عن التصميمات المتاحة" class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i> </a>
     </div>
