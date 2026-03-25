@@ -28,7 +28,6 @@
         .header-icon { width: 24px; height: 24px; stroke: #1a2b4c; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; transition: 0.3s; cursor: pointer;}
         .header-icon:hover { stroke-width: 2; }
 
-        /* 🔥 زرار اللغة الجديد الرايق 🔥 */
         .lang-btn {
             font-size: 0.8em;
             font-weight: 700;
@@ -93,18 +92,41 @@
 
         footer { background-color: #ffffff; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #f0f0f0; margin-top: 30px; font-size: 0.9em; font-weight: 500; }
 
+        /* 🔥 أيقونة الواتساب المرنة (بتنبض) 🔥 */
+        .whatsapp-container { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
+        .whatsapp-btn { 
+            background-color: #25D366; 
+            color: white; 
+            width: 55px; 
+            height: 55px; 
+            border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); 
+            animation: pulse-whatsapp 2s infinite; /* تأثير النبض هنا */
+            transition: 0.3s; 
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); animation: none; }
+        .whatsapp-icon-float { width: 32px; height: 32px; fill: currentColor; }
+        
+        /* كود تأثير النبض المرن */
+        @keyframes pulse-whatsapp {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         @media (max-width: 600px) {
             .center-logo-container h1 { font-size: 1.5em; }
             .hero { height: 35vh; margin-bottom: 25px; padding-bottom: 20px;} 
-            
             .hero-btn { padding: 10px 35px; }
             .hero-btn .main-text { font-size: 1.05em; }
             .hero-btn .sub-text { font-size: 0.7em; }
-
             .product-card { flex: 0 0 40%; }
             .product-image { height: 160px; }
             .product-title { font-size: 0.95em; }
-            .right-icons-container { gap: 10px; } /* تقليل المسافة في الموبايل عشان الزحمة */
+            .right-icons-container { gap: 10px; }
+            .whatsapp-btn { width: 50px; height: 50px; } /* تصغير بسيط في الموبايل */
+            .whatsapp-icon-float { width: 28px; height: 28px; }
         }
     </style>
 </head>
@@ -121,7 +143,6 @@
         
         <div class="right-icons-container">
             <div class="lang-btn">EN</div>
-            
             <a href="https://wa.me/201070420400?text=مرحباً، أود البحث عن منتج">
                 <svg class="header-icon" viewBox="0 0 24 24">
                     <circle cx="11" cy="11" r="8"></circle>
@@ -192,13 +213,9 @@
         </div>
 
         <div class="slider-controls">
-            <button id="nextBtn">
-                <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg>
-            </button>
+            <button id="nextBtn"><svg class="arrow-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path></svg></button>
             <span id="pageIndicator">1 / 5</span>
-            <button id="prevBtn">
-                <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
-            </button>
+            <button id="prevBtn"><svg class="arrow-icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
         </div>
     </div>
 
@@ -206,18 +223,22 @@
         <p>جميع الحقوق محفوظة © 2026 Q KIDS</p>
     </footer>
 
+    <!-- 🔥 زرار الواتساب المرن في الـ HTML 🔥 -->
+    <div class="whatsapp-container">
+        <a href="https://wa.me/201070420400?text=مرحباً، أريد الاستفسار عن التصميمات المتاحة" class="whatsapp-btn">
+            <svg class="whatsapp-icon-float" viewBox="0 0 24 24">
+                <path d="M12.01 2.013c-5.506 0-9.974 4.463-9.974 9.969 0 1.763.461 3.483 1.336 4.997L2.014 22l5.166-1.355c1.474.808 3.136 1.236 4.83 1.236 5.503 0 9.97-4.464 9.97-9.97 0-5.505-4.467-9.898-9.97-9.898zm5.666 14.336c-.234.664-1.353 1.272-1.87 1.353-.491.076-1.129.13-3.235-.742-2.528-1.048-4.148-3.614-4.275-3.784-.124-.173-1.02-1.359-1.02-2.592 0-1.232.637-1.84 1.258-2.474.156-.159.39-.247.643-.247.253 0 .506 0 .736.012.235.012.548-.09.852.646.314.76 1.074 2.622 1.168 2.809.094.186.155.405.031.651-.125.247-.188.402-.375.618-.188.216-.395.457-.563.633-.188.199-.387.416-.168.788.219.37 1.05 1.722 2.27 2.81 1.579 1.408 2.915 1.848 3.29 2.034.375.186.593.155.812-.093.219-.247.938-1.082 1.188-1.453.25-.371.5-.31.844-.185.344.123 2.188 1.033 2.563 1.218.375.186.625.278.718.433.094.155.094.898-.14 1.562z"/>
+            </svg>
+        </a>
+    </div>
+
     <script>
         const track = document.getElementById('productTrack');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
 
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -220, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: 220, behavior: 'smooth' });
-        });
+        prevBtn.addEventListener('click', () => { track.scrollBy({ left: -220, behavior: 'smooth' }); });
+        nextBtn.addEventListener('click', () => { track.scrollBy({ left: 220, behavior: 'smooth' }); });
     </script>
 
 </body>
