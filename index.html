@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
+        /* الإعدادات العامة */
         body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #fff; color: #333; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
+        /* الهيدر */
         header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background-color: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 100; }
         .left-menu-container { font-size: 1.5em; color: #555; cursor: pointer; }
         .center-logo-container h1 { margin: 0; font-size: 1.8em; color: #222; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;}
@@ -20,76 +22,74 @@
         .lang-btn { font-size: 0.8em; font-weight: 700; border: 1px solid #555; padding: 2px 6px; border-radius: 50%; cursor: pointer;}
         .right-icons-container a:hover, .lang-btn:hover { color: #000; border-color: #000; }
 
-        /* البانر الرئيسي */
+        /* البانر الرئيسي بالصورة الجديدة start1.png */
         .hero { 
-            background-image: url('start.jpg'); 
+            background-image: url('start1.png'); 
             background-size: cover; 
             background-position: center; 
-            height: 60vh; /* ارتفاع الكمبيوتر */
+            height: 60vh; 
             display: flex; align-items: center; justify-content: center; position: relative; margin-bottom: 40px;
         }
         
         .hero-btn { background-color: rgba(215, 138, 118, 0.85); color: #fff; padding: 15px 40px; font-size: 1.5em; font-weight: 700; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: all 0.3s; position: relative; z-index: 2; }
         .hero-btn:hover { background-color: rgba(215, 138, 118, 1); transform: scale(1.05); }
 
-        .collection-title { text-align: center; font-size: 1.8em; margin: 40px 0 20px; color: #222; font-weight: 700; }
+        .collection-title { text-align: center; font-size: 1.8em; margin: 40px 0 20px; color: #112d4e; font-weight: 700; }
         
-        /* الشبكة في الكمبيوتر */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 0 5%; max-width: 1200px; margin: 0 auto 50px; }
+        /* إعدادات السلايدر (السحب للجنب) */
+        .slider-wrapper { position: relative; max-width: 1200px; margin: 0 auto 50px; padding: 0 5%; }
+        
+        .product-track { 
+            display: flex; 
+            gap: 15px; 
+            overflow-x: auto; 
+            scroll-snap-type: x mandatory; 
+            scrollbar-width: none; /* إخفاء شريط التمرير في فايرفوكس */
+            -ms-overflow-style: none; /* إخفاء شريط التمرير في إكسبلورر */
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+        }
+        .product-track::-webkit-scrollbar { display: none; /* إخفاء شريط التمرير في كروم وسفاري */ }
 
-        .product-card { text-align: center; background: #fff; transition: 0.3s; border-radius: 8px; overflow: hidden; padding-bottom: 15px; border: 1px solid #f0f0f0;}
-        .product-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .product-image { width: 100%; height: 200px; background-color: #eee; object-fit: cover; margin-bottom: 12px; }
-        .product-title { font-size: 1.1em; font-weight: 600; color: #333; margin: 0 0 15px; }
-        .btn-choose { display: inline-block; border: 1px solid #333; color: #333; background: transparent; padding: 6px 20px; font-size: 0.9em; font-weight: 600; border-radius: 4px; transition: 0.3s; }
-        .btn-choose:hover { background: #333; color: #fff; }
+        /* كارت المنتج */
+        .product-card { 
+            flex: 0 0 calc(50% - 10px); /* عرض منتجين في الشاشة */
+            scroll-snap-align: start; 
+            text-align: center; background: #fff; transition: 0.3s; border-radius: 12px; overflow: hidden; padding-bottom: 15px; border: 1px solid #112d4e; 
+        }
+        .product-image { width: 100%; height: 200px; background-color: #eee; object-fit: cover; border-bottom: 1px solid #f0f0f0; margin-bottom: 12px; }
+        .product-title { font-size: 1.1em; font-weight: 600; color: #112d4e; margin: 0 0 10px; display: flex; justify-content: center; align-items: center; gap: 8px;}
+        
+        /* أزرار التقليب أسفل المنتجات */
+        .slider-controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 15px; color: #555; font-size: 1.1em; font-weight: 600;}
+        .slider-controls button { background: none; border: none; font-size: 1.2em; cursor: pointer; color: #888; transition: 0.3s; padding: 5px 15px;}
+        .slider-controls button:hover { color: #112d4e; }
 
         footer { background-color: #fafafa; padding: 30px 20px; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 30px; font-size: 0.9em; }
 
         .whatsapp-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
         .whatsapp-btn { background-color: #25D366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8em; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2); transition: 0.3s; }
-        .whatsapp-btn:hover { transform: scale(1.05); }
 
-        /* ======== تظبيط الموبايل فقط ======== */
+        /* تظبيط الموبايل */
         @media (max-width: 600px) {
             .center-logo-container h1 { font-size: 1.4em; }
             .right-icons-container { gap: 10px; font-size: 1.1em; }
-            
-            /* إجبار المنتجات تبقى 2 جمب بعض */
-            .product-grid { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 10px; 
-                padding: 0 10px;
-            }
-            .product-image { height: 150px; } /* تصغير الصورة عشان تناسب العرض */
-            .product-title { font-size: 0.95em; margin-bottom: 10px; }
-            .btn-choose { padding: 4px 12px; font-size: 0.8em; }
-
-            /* تظبيط صورة البداية عشان متتقصش أوي */
             .hero { height: 35vh; margin-bottom: 25px;} 
             .hero-btn { padding: 10px 20px; font-size: 1.1em; }
+            .product-image { height: 160px; }
+            .product-title { font-size: 1em; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="left-menu-container">
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <div class="center-logo-container">
-            <a href="index.html"><h1>Q KIDS</h1></a>
-        </div>
-
+        <div class="left-menu-container"><i class="fas fa-bars"></i></div>
+        <div class="center-logo-container"><a href="index.html"><h1>Q KIDS</h1></a></div>
         <div class="right-icons-container">
             <div class="lang-btn">EN</div>
-            <a href="https://wa.me/201070420400?text=مرحباً، أود البحث عن منتج" title="بحث">
-                <i class="fas fa-search"></i> 
-            </a>
-            <a href="https://wa.me/201070420400?text=مرحباً، أود مراجعة طلبي" title="سلة التسوق">
-                <i class="fas fa-shopping-basket"></i> 
-            </a>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-basket"></i></a>
         </div>
     </header>
 
@@ -99,33 +99,44 @@
         </a>
     </div>
 
-    <h2 class="collection-title">منتجات صغيرة</h2>
+    <h2 class="collection-title">منتجات Q KIDS</h2>
 
-    <div class="product-grid">
-        <div class="product-card">
-            <img src="desk.jpg" alt="مكتب أطفال" class="product-image">
-            <h3 class="product-title">مكتب أطفال</h3>
-            <a href="kids-desk.html" class="btn-choose">عرض الأشكال</a>
+    <!-- قسم السلايدر الجديد -->
+    <div class="slider-wrapper">
+        <div class="product-track" id="productTrack">
+            
+            <div class="product-card">
+                <img src="desk.jpg" alt="مكتب أطفال" class="product-image">
+                <a href="kids-desk.html" class="product-title"><i class="fas fa-arrow-left"></i> مكتب أطفال</a>
+            </div>
+
+            <div class="product-card">
+                <img src="desk.jpg" alt="مكاتب شبابي" class="product-image">
+                <a href="youth-desk.html" class="product-title"><i class="fas fa-arrow-left"></i> مكاتب شبابي</a>
+            </div>
+
+            <div class="product-card">
+                <img src="kitchen.jpg" alt="مطبخ أطفال" class="product-image">
+                <a href="kids-kitchen.html" class="product-title"><i class="fas fa-arrow-left"></i> مطبخ أطفال</a>
+            </div>
+
+            <div class="product-card">
+                <img src="box.jpg" alt="مكتبة أطفال" class="product-image">
+                <a href="kids-library.html" class="product-title"><i class="fas fa-arrow-left"></i> مكتبة أطفال</a>
+            </div>
+
+            <div class="product-card">
+                <img src="box.jpg" alt="تسريحة" class="product-image">
+                <a href="dressing-table.html" class="product-title"><i class="fas fa-arrow-left"></i> تسريحة</a>
+            </div>
+
         </div>
-        <div class="product-card">
-            <img src="desk.jpg" alt="مكاتب شبابي" class="product-image">
-            <h3 class="product-title">مكاتب شبابي</h3>
-            <a href="youth-desk.html" class="btn-choose">عرض الأشكال</a>
-        </div>
-        <div class="product-card">
-            <img src="kitchen.jpg" alt="مطبخ أطفال" class="product-image">
-            <h3 class="product-title">مطبخ أطفال</h3>
-            <a href="kids-kitchen.html" class="btn-choose">عرض الأشكال</a>
-        </div>
-        <div class="product-card">
-            <img src="box.jpg" alt="مكتبة أطفال" class="product-image">
-            <h3 class="product-title">مكتبة أطفال</h3>
-            <a href="kids-library.html" class="btn-choose">عرض الأشكال</a>
-        </div>
-        <div class="product-card">
-            <img src="box.jpg" alt="تسريحة" class="product-image">
-            <h3 class="product-title">تسريحة</h3>
-            <a href="dressing-table.html" class="btn-choose">عرض الأشكال</a>
+
+        <!-- أزرار التقليب -->
+        <div class="slider-controls">
+            <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            <span id="pageIndicator">1 / 5</span>
+            <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
         </div>
     </div>
 
@@ -138,6 +149,23 @@
             <i class="fab fa-whatsapp"></i> 
         </a>
     </div>
+
+    <!-- كود جافاسكريبت لتشغيل أزرار السلايدر -->
+    <script>
+        const track = document.getElementById('productTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // لما تدوس على السهم الشمال
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -200, behavior: 'smooth' });
+        });
+
+        // لما تدوس على السهم اليمين
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: 200, behavior: 'smooth' });
+        });
+    </script>
 
 </body>
 </html>
